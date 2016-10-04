@@ -1,50 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+    <title>Ex 1</title>
+    <meta charset="UTF-8">
 </head>
 <body>
-<h1 style="text-align: center">EXERCICI 1</h1>
-<h3 style="text-align: center">De notes a literals</h3>
-<div class="notes">
-<?php
-$notes = array(2.2,3.3,4.4,5.5,6.6,7.7,10 );
-function literal($pNotes){
-    foreach ($pNotes as $nota){
-        if($nota >= 5){
-            if($nota >=9){
-                echo "Excel·lent $nota<br>";
-            }
-            elseif ($nota >=7){
-                echo "Notable $nota<br>";
-            }
-            elseif($nota >=6){
-                echo "Bé $nota<br>";
-            }
-            else{
-                echo "Suficient $nota<br>";
-            }
+<h1>Exercici 1</h1>
 
-        }
-        else{
-            echo "Insuficient $nota<br>";
-        }
-    }
+<form action="ex1.php" method="post">
+    <input type="text" name="nota" value="">
+    <input type="submit" value="Calcular literal">
+</form>
+
+<?php
+$nota = $_POST["nota"];
+echo "Nota: $nota<br>";
+echo "Literal: ";
+switch($nota) {
+    case 5:
+        echo "Suficient";
+        break;
+    case 6:
+        echo "Bé";
+        break;
+    case 7:
+    case 8:
+        echo "Notable";
+        break;
+    case 9:
+    case 10:
+        echo "Exel·lent";
+        break;
+    default:
+        echo "Insuficient";
 }
-echo "<br><br>";
-literal($notes);
 ?>
-</div>
-<style>
-    .notes{
-        text-align: center;
-        background: black;
-        color: white;
-    }
-    .notes hr{
-        width: 25%;
-        background: darkslategrey;
-    }
-</style>
 </body>
 </html>
